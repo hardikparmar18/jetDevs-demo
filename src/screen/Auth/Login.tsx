@@ -17,6 +17,7 @@ import {COLORS} from '../../styles';
 import {deviceHeight, deviceWidth} from '../../utils/Dimension';
 import {useDispatch} from 'react-redux';
 import {setUser} from '../../redux/slice';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = () => {
   const [activeInputField, setActiveInputField] = useState<string>('');
@@ -33,12 +34,16 @@ const Login = () => {
       .required('Password field is required'),
   });
 
-  const onLoginPress = (email: string, password: string) => {
+  const onLoginPress = async (email: string, password: string) => {
     if (
       email.toLowerCase() === 'reactnative@jetdevs.com' &&
       password === 'jetdevs@123'
     ) {
-      dispatch(setUser({username: email, password: password}));
+      dispatch(setUser(true));
+      await AsyncStorage.setItem(
+        'UserData',
+        JSON.stringify({username: email, password: password}),
+      );
     } else {
       Alert.alert(
         'User unauthorized ',
