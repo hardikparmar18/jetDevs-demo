@@ -23,10 +23,11 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
+  const emailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
   const formValidation = object({
     email: string()
-      .email('Please enter valid email')
+      .matches(emailRegExp, 'Please enter valid Email')
       .required('Email field is required'),
     password: string()
       .min(8, 'Minimum 8 character required')
