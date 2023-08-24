@@ -122,7 +122,6 @@ const Login = () => {
                 )}
               </Formik>
             </View>
-            <View style={styles.blankContainer}></View>
           </View>
         </SafeAreaView>
       </TouchableWithoutFeedback>
@@ -172,6 +171,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginBottom: deviceHeight * 0.25,
   },
   blankContainer: {
     flex: 0.8,
