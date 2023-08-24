@@ -20,7 +20,7 @@ const AppRouter = () => {
     const rawUserData = await AsyncStorage.getItem('UserData');
     const currentUserData = rawUserData ? await JSON.parse(rawUserData) : null;
     if (currentUserData) {
-      dispatch(setUser(currentUserData));
+      dispatch(setUser(true));
     }
     setLoading(false);
   };
