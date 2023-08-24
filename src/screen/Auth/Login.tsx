@@ -10,7 +10,7 @@ import {
   Keyboard,
   Alert,
 } from 'react-native';
-import {Button, CustomTextInput, Loader} from '../../components';
+import {Button, CustomTextInput} from '../../components';
 import {Formik} from 'formik';
 import {object, string} from 'yup';
 import {COLORS} from '../../styles';
@@ -20,7 +20,6 @@ import {setUser} from '../../redux/slice';
 
 const Login = () => {
   const [activeInputField, setActiveInputField] = useState<string>('');
-  const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
   const emailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
